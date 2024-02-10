@@ -1,11 +1,21 @@
 import Link from "next/link";
-export default function Home() {
+import classes from "./page.module.css";
+import MealsGrid from "../components/Meals/MealsGrid";
+export default function MealsPage() {
   return (
-    <main>
-      <h1>Meals</h1>
-
-      <Link href="/meals/111">Meals 1</Link>
-      <Link href="/meals/222">Meals 2</Link>
-    </main>
+    <>
+      <header className={classes.header}>
+        <h1>
+          <span></span>
+        </h1>
+        <p></p>
+        <p className={classes.cta}>
+          <Link href="/meals/share">Share your favorite recipe</Link>
+        </p>
+      </header>
+      <main className={classes.main}>
+        <MealsGrid meals={[]} />
+      </main>
+    </>
   );
 }
