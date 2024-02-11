@@ -198,4 +198,4 @@ async function initData() {
   }
 }
 
-initData();
+initData()
