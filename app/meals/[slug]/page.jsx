@@ -20,7 +20,11 @@ export default async function MealsDetailPage({ params }) {
     <>
       <header className={classes.header}>
         <div className={classes.image}>
-          <Image fill src={image} alt={title} />
+          <Image
+            fill
+            src={`https://mariam-kvirkviia-nextjs-demo-users-image.s3-us-west-2.amazonaws.com/${image}`}
+            alt={title}
+          />
         </div>
         <div className={classes.headerText}>
           <h1>{title}</h1>

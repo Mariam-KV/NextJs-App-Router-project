@@ -1,7 +1,8 @@
 "use server";
 import { redirect } from "next/navigation";
 import { saveMeal } from "./meals";
-export default async function ShareMeal(formData) {
+import { revalidatePath } from "next/cache";
+export default async function ShareMeal(prevState, formData) {
   function validation(value) {
     return value && value.trim() !== "";
   }
@@ -22,9 +23,9 @@ export default async function ShareMeal(formData) {
     validation(meal.instructions)
   ) {
     await saveMeal(meal);
-
+    revalidatePath("/meals");
     redirect("/meals");
   } else {
-    return { message: "Invalid inputs!" };
+    return { message: "Invalid inputs." };
   }
 }
